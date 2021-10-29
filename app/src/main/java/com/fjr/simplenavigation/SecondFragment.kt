@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.NavOptions
 import androidx.navigation.NavOptionsBuilder
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.navGraphViewModels
 import androidx.navigation.navOptions
 import com.fjr.simplenavigation.databinding.FragmentSecondBinding
@@ -30,16 +31,9 @@ class SecondFragment : Fragment() {
         _binding = FragmentSecondBinding.inflate(inflater, container, false)
         val view = binding?.root
 
-
         binding?.textView2?.setOnClickListener {
             if (view != null) {
-                // Navigation.findNavController(view).navigate(R.id.firstFragment, null, navOptions {
-                //     popUpTo(R.id.firstFragment) {
-                //         inclusive = true
-                //     }
-                // })
-                // Navigation.findNavController(view).popBackStack()
-                Navigation.findNavController(view).navigate(R.id.action_secondFragment_to_thirdFragment)
+                findNavController().navigate(R.id.action_secondFragment_to_thirdFragment)
             }
         }
 
