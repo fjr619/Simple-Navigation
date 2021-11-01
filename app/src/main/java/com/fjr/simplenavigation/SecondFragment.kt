@@ -11,6 +11,7 @@ import androidx.navigation.NavOptions
 import androidx.navigation.NavOptionsBuilder
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.navigation.navGraphViewModels
 import androidx.navigation.navOptions
 import com.fjr.simplenavigation.databinding.FragmentSecondBinding
@@ -18,6 +19,7 @@ import com.fjr.simplenavigation.databinding.FragmentSecondBinding
 class SecondFragment : Fragment() {
 
     // private val navGraphVM by viewModels<NavScopeVM2>()
+    val args: SecondFragmentArgs by navArgs()
 
 
     private var _binding: FragmentSecondBinding? = null
@@ -31,11 +33,13 @@ class SecondFragment : Fragment() {
         _binding = FragmentSecondBinding.inflate(inflater, container, false)
         val view = binding?.root
 
+        binding?.editText2?.setText(args.data)
         binding?.textView2?.setOnClickListener {
             if (view != null) {
                 findNavController().navigate(R.id.action_secondFragment_to_thirdFragment)
             }
         }
+
 
         return view
     }

@@ -11,11 +11,6 @@ import androidx.navigation.fragment.findNavController
 import com.fjr.simplenavigation.databinding.FragmentSecondBinding
 import com.fjr.simplenavigation.databinding.FragmentThirdBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
 /**
  * A simple [Fragment] subclass.
  * Use the [ThirdFragment.newInstance] factory method to
@@ -37,7 +32,7 @@ class ThirdFragment : Fragment() {
         binding?.textView3?.setOnClickListener {
             //ini jika mw langsung popback stack ke root bisa pakai ini
             val navBackStackEntry = findNavController().getBackStackEntry(R.id.firstFragment)
-            navBackStackEntry.savedStateHandle.set("key", "getBackStackEntry")
+            navBackStackEntry.savedStateHandle.set("key", "\n-- result dari third fragment --")
             findNavController().navigate(R.id.action_thirdFragment_to_firstFragment)
         }
 

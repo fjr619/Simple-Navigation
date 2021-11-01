@@ -38,7 +38,7 @@ class FirstFragment : Fragment() {
             if (view != null) {
                 findNavController().navigate(
                     FirstFragmentDirections
-                        .actionFirstFragmentToSecondFragment()
+                        .actionFirstFragmentToSecondFragment("ini dari first fragment")
                 )
             }
         }
@@ -58,7 +58,7 @@ class FirstFragment : Fragment() {
                 && navBackStackEntry?.savedStateHandle?.contains("key") == true
             ) {
                 val result = navBackStackEntry?.savedStateHandle?.get<String>("key");
-                Toast.makeText(requireContext(), "ini hasil dari previous fragment $result",
+                Toast.makeText(requireContext(), "navBackStackEntry firstFragment $result",
                     Toast.LENGTH_SHORT).show()
             }
         }
